@@ -18,11 +18,11 @@
 </div>
 
 <div class="container col-4 text-center my-80">
-    <h2 class="current-date text-warning rounded-top"><%= curr_date %></h2>
+    <h2 class="current-date text-warning <%= (todos.length > 0) ? 'rounded-top' : 'rounded' %>"><%= curr_date %></h2>
     <ul class="list-group">
         <% for (let i = 0; i < todos.length; i++) { %>
-            <li class="list-group-item d-flex justify-content-between <%= (i === 0) ? 'rounded-0' : '' %>">
-              <input type="checkbox" class="">
+            <li class="list-group-item d-flex justify-content-between <%= (i === 0 && todos.length === 1) ? 'rounded-bottom ' : (todos.length > 1) ? 'rounded-0' : '' %>">
+                <input type="checkbox" class="">
               <p class="existing p-0 m-0"><%= todos[i] %></p>
             </li>
           <% } %>
@@ -33,7 +33,7 @@
                     <input type="text" class="form-control border border-warning" name="item" placeholder="New Item To Do">
                 </div>
                 <div class="col-1 p-0 m-0">
-                    <button type="submit" value="submit" class="btn btn-warning submit rounded-circle text-light">+</button>
+                    <button type="submit" name="came_from" value=<%= came_from %> class="btn btn-warning submit rounded-circle text-light">+</button>
 
                 </div>
             </div>
