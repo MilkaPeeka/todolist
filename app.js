@@ -1,6 +1,7 @@
 const express = require("express");
 const bp = require("body-parser");
-
+const {getDate, getDay} = require(__dirname + "/date.js");
+console.log(getDay());
 var app = express();
 app.use(bp.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -11,9 +12,8 @@ const todos_main = ["Add your wanted item by", "Clicking on the +, and remove", 
 const todos_work = [];
 
 app.get("/" ,(req, res) => {
-    const options = { weekday: "long", day: "numeric", month: "long", year: "numeric"};
     const data = {
-        curr_date: new Date().toLocaleDateString("en-GB", options),
+        curr_date: getDate(),
         todos: todos_main,
         came_from: "main"
     };
@@ -37,9 +37,8 @@ app.post("/" ,(req, res) => {
 });
 
 app.get("/work" ,(req, res) => {
-    const options = { weekday: "long", day: "numeric", month: "long", year: "numeric"};
     const data = {
-        curr_date: new Date().toLocaleDateString("en-GB", options),
+        curr_date: getDate(),
         todos: todos_work,
         came_from: "work"
     };
