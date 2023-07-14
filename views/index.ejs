@@ -17,16 +17,22 @@
 
 </div>
 
-<div class="container list col-md-8 text-center my-80">
+<div class="container list col-4 text-center my-80">
     <p class="current-date h3 text-warning"><%= curr_date %></p>
     <ul class="list-group">
         <% for (let i = 0; i < todos.length; i++) { %>
             <li class="list-group-item"><%= todos[i] %></li>
         <% } %>
-        <form class="form-inline" action="/" method="post" >
-            <div class="form-group mb-2">
-            <input type="text" class="form-control" name="item" placeholder="New Item To Do">
-            <button type="submit" value="submit" class="btn btn-warning submit">+</button>
+        <form action="/" method="post">
+            <div class="row">
+                <div class="col-11">
+                    <input type="text" class="form-control border border-warning" name="item" placeholder="New Item To Do">
+                </div>
+                <div class="col-1 p-0 m-0">
+                    <button type="submit" value="submit" class="btn btn-warning submit rounded-circle">+</button>
+
+                </div>
+            </div>
         </form>
 </div>
     
