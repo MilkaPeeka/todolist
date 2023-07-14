@@ -18,14 +18,14 @@
 </div>
 
 <div class="container col-4 text-center my-80">
-    <h2 class="current-date text-warning"><%= curr_date %></h2>
+    <h2 class="current-date text-warning rounded-top"><%= curr_date %></h2>
     <ul class="list-group">
         <% for (let i = 0; i < todos.length; i++) { %>
-            <li class="list-group-item d-flex justify-content-between ">
-                <input type="checkbox" class="">
-                <p class="existing p-0 m-0"><%= todos[i] %></p>
+            <li class="list-group-item d-flex justify-content-between <%= (i === 0) ? 'rounded-0' : '' %>">
+              <input type="checkbox" class="">
+              <p class="existing p-0 m-0"><%= todos[i] %></p>
             </li>
-        <% } %>
+          <% } %>
     </ul>
         <form action="/" method="post">
             <div class="row">

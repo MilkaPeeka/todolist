@@ -7,7 +7,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 
-const todos = ["Add your wanted item by", "clicking on the +"];
+const todos = ["Add your wanted item by", "Clicking on the +, and remove", "By checking the box"];
 
 
 app.get("/" ,(req, res) => {
