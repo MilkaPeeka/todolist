@@ -17,19 +17,23 @@
 
 </div>
 
-<div class="container list col-4 text-center my-80">
-    <p class="current-date h3 text-warning"><%= curr_date %></p>
+<div class="container col-4 text-center my-80">
+    <h2 class="current-date text-warning"><%= curr_date %></h2>
     <ul class="list-group">
         <% for (let i = 0; i < todos.length; i++) { %>
-            <li class="list-group-item"><%= todos[i] %></li>
+            <li class="list-group-item d-flex justify-content-between ">
+                <input type="checkbox" class="">
+                <p class="existing p-0 m-0"><%= todos[i] %></p>
+            </li>
         <% } %>
+    </ul>
         <form action="/" method="post">
             <div class="row">
                 <div class="col-11">
                     <input type="text" class="form-control border border-warning" name="item" placeholder="New Item To Do">
                 </div>
                 <div class="col-1 p-0 m-0">
-                    <button type="submit" value="submit" class="btn btn-warning submit rounded-circle">+</button>
+                    <button type="submit" value="submit" class="btn btn-warning submit rounded-circle text-light">+</button>
 
                 </div>
             </div>

@@ -1,8 +1,50 @@
+body {
+    background-image: linear-gradient(45deg, #dbc59c, rgb(255, 255, 255));
+    animation: gradientAnimation 3s ease infinite;
+    background-size: 600% 600%;
+
+}
+input[type=checkbox]{
+    accent-color:#ffc107 !important;
+}
+
+input[type=checkbox]:checked + .existing {
+    text-decoration:line-through !important;
+}
+
+.list-group-item p {
+    width: 100%;
+}
+
+
+@keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+}
+
 .form-control:focus {
     box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25) !important;
 } 
-
 .row {
     width: 100%;
-    padding-top: 3rem;
+    padding-top: 2.5rem;
+}
+
+ul {
+    padding-top: 1rem;
+}
+
+.container {
+    margin: 5rem;
+}
+
+h2 {
+    height: 100%;
 }
