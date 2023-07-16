@@ -2,6 +2,7 @@ const express = require("express");
 const bp = require("body-parser");
 const {getDate, getDay} = require(__dirname + "/date.js");
 const mongoose = require("mongoose");
+const process = require("process");
 
 const app = express();
 app.use(bp.urlencoded({extended: true}));
@@ -100,6 +101,6 @@ app.get("/work" ,(req, res) => {
 );
 
 
-app.listen("3000", () => {
-console.log("listening on 3000");
+app.listen(process.env.PORT || "3000", () => {
+    console.log("listening on 3000" );
 });
