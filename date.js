@@ -6,7 +6,4 @@ const getDay = () =>{
     return "sunday";
 }
 
-
-
 module.exports = {getDate, getDay};
-console.log(module.exports);

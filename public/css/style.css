@@ -8,14 +8,9 @@ input[type=checkbox]{
     accent-color:#ffc107 !important;
 }
 
-input[type=checkbox]:checked + .existing {
-    text-decoration:line-through !important;
-}
-
 .list-group-item p {
     width: 100%;
 }
-
 
 @keyframes gradientAnimation {
     0% {

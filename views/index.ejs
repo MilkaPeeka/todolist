@@ -21,12 +21,19 @@
     <h2 class="current-date text-warning <%= (todos.length > 0) ? 'rounded-top' : 'rounded' %>"><%= curr_date %></h2>
     <ul class="list-group">
         <% for (let i = 0; i < todos.length; i++) { %>
-            <li class="list-group-item d-flex justify-content-between <%= (i === 0 && todos.length === 1) ? 'rounded-bottom ' : (todos.length > 1) ? 'rounded-0' : '' %>">
-                <input type="checkbox" class="">
-              <p class="existing p-0 m-0"><%= todos[i] %></p>
-            </li>
-          <% } %>
-    </ul>
+          <form action="/update_state" method="post" class="list-group-item d-flex justify-content-between <%= (i === 0 && todos.length === 1 || i === todos.length - 1) ? 'rounded-bottom ' : (todos.length > 1) ? 'rounded-0' : '' %>">
+            <input type="checkbox" onclick="this.form.submit()" <%= todos[i].isMarked ? 'checked' : '' %>>
+            <input type="hidden" name="came_from" value="<%= came_from %>">
+            <input type="hidden" name="itemID" id="itemID" value="<%= todos[i]._id %>"">
+            <p class="p-0 m-0">
+                <% if (todos[i].isMarked) { %>
+                  <del><%= todos[i].body %></del>
+                <% } else { %>
+                  <%= todos[i].body %>
+                <% } %>
+              </p>          </form>
+        <% } %>
+      </ul>
         <form action="/" method="post">
             <div class="row">
                 <div class="col-11">
@@ -34,7 +41,6 @@
                 </div>
                 <div class="col-1 p-0 m-0">
                     <button type="submit" name="came_from" value=<%= came_from %> class="btn btn-warning submit rounded-circle text-light">+</button>
-
                 </div>
             </div>
         </form>
